@@ -1,5 +1,55 @@
+"use client";
 import { skills } from "@/lib/data";
 import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
+
+function StatCounter({ target, suffix = "" }: { target: number; suffix: string }) {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLDivElement>(null);
+    const started = useRef(false);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !started.current) {
+                    started.current = true;
+                    let startTime = 0;
+                    const duration = 1400;
+                    const step = (ts: number) => {
+                        if (!startTime) startTime = ts;
+                        const progress = Math.min((ts - startTime) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        setCount(Math.floor(eased * target));
+                        if (progress < 1) requestAnimationFrame(step);
+                        else setCount(target);
+                    };
+                    requestAnimationFrame(step);
+                }
+            },
+            { threshold: 0.5 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [target]);
+
+    return (
+        <div
+            ref={ref}
+            style={{
+                fontSize: "1.5rem",
+                fontWeight: 700,
+                fontFamily: "var(--font-sans)",
+                background: "var(--gradient-accent)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+            }}
+        >
+            {count}{suffix}
+        </div>
+    );
+}
 
 export default function About() {
     return (
@@ -7,12 +57,12 @@ export default function About() {
             <div className="section">
                 <p className="section-label">01. Sobre mí</p>
                 <h2 className="section-title">
-                    Construyendo el futuro,{" "}
-                    <span className="gradient-text">una línea a la vez</span>
+                    Arquitecto de soluciones{" "}
+                    <span className="gradient-text">con propósito</span>
                 </h2>
                 <p className="section-subtitle">
-                    Ingeniero de Sistemas con pasión por las tecnologías emergentes y el desarrollo de
-                    productos que generan impacto real.
+                    Ingeniero de Sistemas (Décimo Superior, UNHEVAL) · Fundador de startups Deep Tech ·
+                    Apasionado por resolver problemas estructurales con datos e inteligencia artificial.
                 </p>
 
                 <div
@@ -27,7 +77,7 @@ export default function About() {
                     {/* Profile image */}
                     <div
                         style={{ position: "relative", maxWidth: "340px" }}
-                        className="animate-scaleIn"
+                        className="reveal-left"
                     >
                         <div
                             style={{
@@ -99,23 +149,12 @@ export default function About() {
                             }}
                         >
                             {[
-                                { label: "Proyectos", value: "10+" },
-                                { label: "Tecnologías", value: "20+" },
-                                { label: "Años exp.", value: "3+" },
+                                { label: "Proyectos", target: 10, suffix: "+" },
+                                { label: "Premios", target: 15, suffix: "+" },
+                                { label: "Años exp.", target: 3, suffix: "+" },
                             ].map((s) => (
                                 <div key={s.label} style={{ textAlign: "center" }}>
-                                    <div
-                                        style={{
-                                            fontSize: "1.5rem",
-                                            fontWeight: 700,
-                                            fontFamily: "var(--font-sans)",
-                                            background: "var(--gradient-accent)",
-                                            WebkitBackgroundClip: "text",
-                                            WebkitTextFillColor: "transparent",
-                                        }}
-                                    >
-                                        {s.value}
-                                    </div>
+                                    <StatCounter target={s.target} suffix={s.suffix} />
                                     <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
                                         {s.label}
                                     </div>
@@ -125,23 +164,25 @@ export default function About() {
                     </div>
 
                     {/* Text + Skills */}
-                    <div>
+                    <div className="reveal" style={{ "--reveal-delay": "0.15s" } as React.CSSProperties}>
                         <div style={{ marginBottom: "2.5rem" }}>
                             <p style={{ color: "var(--text-secondary)", marginBottom: "1rem", fontSize: "1rem" }}>
                                 Soy <strong style={{ color: "var(--text-primary)" }}>Angel Francisco Kaqui Aquino</strong> —
-                                Ingeniero de Sistemas y Full Stack Developer apasionado por construir soluciones
-                                que combinan diseño, rendimiento e inteligencia artificial.
+                                Egresado de Ingeniería de Sistemas en la UNHEVAL (Décimo Superior), con estudios en la
+                                Universidad de Manizales (Colombia) y especialización en Business Intelligence y Gestión de
+                                Proyectos en la UNMSM (Lima).
                             </p>
                             <p style={{ color: "var(--text-secondary)", marginBottom: "1rem", fontSize: "1rem" }}>
-                                Me especializo en el ecosistema JavaScript moderno (React, Next.js, Node.js) y
-                                desarrollo backend con Python/FastAPI. Tengo especial interés en la integración
-                                de IA en productos reales — como en mis proyectos{" "}
-                                <strong style={{ color: "var(--accent-light)" }}>Eywa</strong> y{" "}
-                                <strong style={{ color: "var(--accent-2)" }}>Lucy</strong>.
+                                Como Tech Lead y Fundador, lidero startups de base tecnológica (Deep Tech) que buscan
+                                resolver problemas estructurales mediante el uso inteligente de datos:{" "}
+                                <strong style={{ color: "var(--accent-light)" }}>EYWA</strong> (DataOps &amp; Sostenibilidad),{" "}
+                                <strong style={{ color: "var(--accent-2)" }}>Lucy</strong> (HealthTech &amp; IA) y{" "}
+                                <strong style={{ color: "#22c55e" }}>BioMulch Andino</strong> (Biotecnología &amp; Economía Circular).
                             </p>
                             <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
-                                Busco constantemente resolver problemas complejos con arquitecturas limpias y
-                                código que escale. Trabajo de forma remota y colaboro con equipos distribuidos.
+                                Graduado del <strong style={{ color: "var(--text-primary)" }}>Aspire Leaders Program</strong> (fundado
+                                por profesores de Harvard) y seleccionado en Jóvenes, Ciudadanía y Democracia (JCD).
+                                Mi base operativa se extiende entre Huánuco, Lima y Pasco.
                             </p>
                         </div>
 

@@ -70,7 +70,7 @@ export default function Contact() {
             />
 
             <div className="section" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-                <p className="section-label">04. Contacto</p>
+                <p className="section-label">05. Contacto</p>
                 <h2 className="section-title" style={{ marginBottom: "1rem" }}>
                     ¿Trabajamos <span className="gradient-text">juntos?</span>
                 </h2>

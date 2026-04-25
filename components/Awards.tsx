@@ -1,3 +1,4 @@
+import React from "react";
 import { awards } from "@/lib/data";
 
 const typeConfig = {
@@ -19,11 +20,11 @@ export default function Awards() {
     return (
         <section id="awards" style={{ background: "var(--bg-secondary)" }}>
             <div className="section">
-                <p className="section-label">04. Reconocimientos</p>
-                <h2 className="section-title">
+                <p className="section-label reveal">04. Reconocimientos</p>
+                <h2 className="section-title reveal" style={{ "--reveal-delay": "0.05s" } as React.CSSProperties}>
                     Logros &amp; <span className="gradient-text">Premios</span>
                 </h2>
-                <p className="section-subtitle">
+                <p className="section-subtitle reveal" style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}>
                     Competencias, hackathons y fondos ganados a lo largo del camino.
                 </p>
 
@@ -68,13 +69,14 @@ export default function Awards() {
                                     gap: "1rem",
                                 }}
                             >
-                                {byYear[year].map((award) => {
+                                {byYear[year].map((award, i) => {
                                     const cfg = typeConfig[award.type];
                                     return (
                                         <div
                                             key={award.id}
-                                            className="glass"
+                                            className="glass reveal"
                                             style={{
+                                                "--reveal-delay": `${i * 0.07}s`,
                                                 padding: "1.2rem 1.4rem",
                                                 borderRadius: "var(--radius)",
                                                 border: `1px solid ${award.accentColor}22`,
@@ -84,7 +86,7 @@ export default function Awards() {
                                                 position: "relative",
                                                 overflow: "hidden",
                                                 transition: "transform 0.22s ease, box-shadow 0.22s ease",
-                                            }}
+                                            } as React.CSSProperties}
                                             onMouseEnter={(e) => {
                                                 (e.currentTarget as HTMLDivElement).style.transform =
                                                     "translateY(-3px)";

@@ -1,3 +1,4 @@
+import React from "react";
 import { experience } from "@/lib/data";
 
 const typeColors: Record<string, string> = {
@@ -16,11 +17,11 @@ export default function Experience() {
     return (
         <section id="experience" style={{ background: "var(--bg-secondary)" }}>
             <div className="section">
-                <p className="section-label">03. Experiencia</p>
-                <h2 className="section-title">
+                <p className="section-label reveal">03. Experiencia</p>
+                <h2 className="section-title reveal" style={{ "--reveal-delay": "0.05s" } as React.CSSProperties}>
                     Mi <span className="gradient-text">trayectoria</span>
                 </h2>
-                <p className="section-subtitle">
+                <p className="section-subtitle reveal" style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}>
                     Del aula a la producción — construyendo experiencia en cada proyecto.
                 </p>
 
@@ -42,12 +43,13 @@ export default function Experience() {
                     />
 
                     <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem", paddingLeft: "3rem" }}>
-                        {experience.map((exp) => {
+                        {experience.map((exp, i) => {
                             const color = typeColors[exp.type] ?? "#6366f1";
                             return (
                                 <article
                                     key={exp.id}
-                                    style={{ position: "relative" }}
+                                    className="reveal"
+                                    style={{ position: "relative", "--reveal-delay": `${i * 0.15}s` } as React.CSSProperties}
                                 >
                                     {/* Timeline dot */}
                                     <div

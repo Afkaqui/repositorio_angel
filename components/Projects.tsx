@@ -1,3 +1,4 @@
+import React from "react";
 import { projects } from "@/lib/data";
 
 const StatusBadge = ({ status }: { status: string }) => {
@@ -35,11 +36,11 @@ export default function Projects() {
     return (
         <section id="projects" style={{ background: "var(--bg-primary)" }}>
             <div className="section">
-                <p className="section-label">02. Proyectos</p>
-                <h2 className="section-title">
+                <p className="section-label reveal">02. Proyectos</p>
+                <h2 className="section-title reveal" style={{ "--reveal-delay": "0.05s" } as React.CSSProperties}>
                     Lo que he <span className="gradient-text">construido</span>
                 </h2>
-                <p className="section-subtitle">
+                <p className="section-subtitle reveal" style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}>
                     Proyectos reales que resuelven problemas reales — con tecnología moderna y código que
                     escala.
                 </p>
@@ -49,8 +50,9 @@ export default function Projects() {
                     {featured.map((project, i) => (
                         <article
                             key={project.id}
-                            className="glass project-card"
+                            className="glass project-card reveal"
                             style={{
+                                "--reveal-delay": `${i * 0.12}s`,
                                 padding: "2rem",
                                 borderRadius: "var(--radius-lg)",
                                 border: `1px solid ${project.accentColor}25`,
@@ -58,7 +60,7 @@ export default function Projects() {
                                 cursor: "default",
                                 position: "relative",
                                 overflow: "hidden",
-                            }}
+                            } as React.CSSProperties}
                         >
                             {/* Background glow */}
                             <div
@@ -197,17 +199,18 @@ export default function Projects() {
                                 gap: "1.25rem",
                             }}
                         >
-                            {rest.map((project) => (
+                            {rest.map((project, i) => (
                                 <article
                                     key={project.id}
-                                    className="glass project-card"
+                                    className="glass project-card reveal"
                                     style={{
+                                        "--reveal-delay": `${i * 0.08}s`,
                                         padding: "1.5rem",
                                         borderRadius: "var(--radius)",
                                         border: `1px solid ${project.accentColor}20`,
                                         transition: "transform 0.25s ease, box-shadow 0.25s ease",
                                         cursor: "default",
-                                    }}
+                                    } as React.CSSProperties}
                                 >
                                     <div
                                         style={{

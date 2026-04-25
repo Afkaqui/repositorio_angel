@@ -13,11 +13,31 @@ const navLinks = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+            const total = document.body.scrollHeight - window.innerHeight;
+            setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+        };
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const sections = document.querySelectorAll("section[id]");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) setActiveSection(entry.target.id);
+                });
+            },
+            { rootMargin: "-40% 0px -55% 0px" }
+        );
+        sections.forEach((s) => observer.observe(s));
+        return () => observer.disconnect();
     }, []);
 
     return (
@@ -37,6 +57,20 @@ export default function Navbar() {
                 padding: "0 1.5rem",
             }}
         >
+            {/* Scroll progress bar */}
+            <div
+                aria-hidden="true"
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    height: "2px",
+                    width: `${progress}%`,
+                    background: "var(--gradient-accent)",
+                    transition: "width 0.1s linear",
+                    zIndex: 101,
+                }}
+            />
             <nav
                 style={{
                     maxWidth: "1100px",
@@ -83,29 +117,46 @@ export default function Navbar() {
                     }}
                     className="desktop-nav"
                 >
-                    {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <a
-                                href={link.href}
-                                style={{
-                                    color: "var(--text-secondary)",
-                                    textDecoration: "none",
-                                    fontFamily: "var(--font-sans)",
-                                    fontSize: "0.9rem",
-                                    fontWeight: 500,
-                                    transition: "color 0.2s ease",
-                                }}
-                                onMouseEnter={(e) =>
-                                    ((e.target as HTMLElement).style.color = "var(--text-primary)")
-                                }
-                                onMouseLeave={(e) =>
-                                    ((e.target as HTMLElement).style.color = "var(--text-secondary)")
-                                }
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
+                    {navLinks.map((link) => {
+                        const sectionId = link.href.replace("#", "");
+                        const isActive = activeSection === sectionId;
+                        return (
+                            <li key={link.href} style={{ position: "relative" }}>
+                                <a
+                                    href={link.href}
+                                    style={{
+                                        color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
+                                        textDecoration: "none",
+                                        fontFamily: "var(--font-sans)",
+                                        fontSize: "0.9rem",
+                                        fontWeight: isActive ? 600 : 500,
+                                        transition: "color 0.2s ease, font-weight 0.2s ease",
+                                    }}
+                                    onMouseEnter={(e) =>
+                                        ((e.target as HTMLElement).style.color = "var(--text-primary)")
+                                    }
+                                    onMouseLeave={(e) =>
+                                        ((e.target as HTMLElement).style.color = isActive ? "var(--text-primary)" : "var(--text-secondary)")
+                                    }
+                                >
+                                    {link.label}
+                                </a>
+                                {isActive && (
+                                    <span
+                                        style={{
+                                            position: "absolute",
+                                            bottom: "-4px",
+                                            left: 0,
+                                            right: 0,
+                                            height: "2px",
+                                            background: "var(--gradient-accent)",
+                                            borderRadius: "1px",
+                                        }}
+                                    />
+                                )}
+                            </li>
+                        );
+                    })}
                     <li>
                         <a
                             href="https://github.com/afkaqui"

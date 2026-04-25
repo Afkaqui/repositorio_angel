@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 
 const titles = [
     "Ingeniero de Sistemas",
+    "Tech Lead & Fundador",
     "Full Stack Developer",
-    "AI / ML Enthusiast",
     "Builder de Productos",
 ];
 
@@ -186,8 +186,8 @@ export default function Hero() {
                         opacity: 0,
                     }}
                 >
-                    Construyo productos digitales con tecnología de punta. Del código al producto final — con
-                    enfoque en rendimiento, escalabilidad y experiencia de usuario.
+                    Fundador de startups Deep Tech y arquitecto de soluciones con propósito. Del dato al
+                    producto — con enfoque en impacto real, escalabilidad y rigor técnico.
                 </p>
 
                 {/* CTA Buttons */}
@@ -221,7 +221,7 @@ export default function Hero() {
                         opacity: 0,
                     }}
                 >
-                    {["Next.js", "React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "Docker"].map(
+                    {["Next.js", "Python", "Docker", "Kubernetes", "Power BI", "Machine Learning", "PMBOK"].map(
                         (tech) => (
                             <span key={tech} className="tag">
                                 {tech}
