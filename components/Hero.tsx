@@ -55,7 +55,7 @@ export default function Hero() {
                 justifyContent: "center",
                 position: "relative",
                 overflow: "hidden",
-                padding: "0 1.5rem",
+                padding: "7rem 1.5rem 0",
             }}
         >
             {/* Ambient glow orbs */}

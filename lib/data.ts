@@ -117,6 +117,19 @@ export const projects: Project[] = [
         accentColor: "#ec4899",
     },
     {
+        id: "cib-pucallpa",
+        name: "CIB Pucallpa — Nodo de Bioeconomía",
+        description:
+            "Centro de Innovación y Biodiversidad Sostenible en la Amazonía peruana. Seleccionado entre los 500 Mejores Proyectos 2026 · Premios Verdes (Economía Circular).",
+        longDescription:
+            "El CIB Pucallpa nace para resolver una falla sistémica en la Amazonía: la depredación de la biodiversidad por falta de modelos económicos competitivos frente a la extracción ilegal. Mediante Ingeniería Financiera Aplicada y un modelo Bio-Lean Startups (Ley 30309), se atrae capital privado reduciendo el riesgo de inversión hasta en un 60%. Incluye trazabilidad digital, procesos industriales modulares de bajo impacto y articulación con comunidades nativas de Ucayali. Reconocido entre los 500 Mejores Proyectos 2026 por Premios Verdes en la categoría Economía Circular.",
+        tech: ["Bioeconomía", "Economía Circular", "Ingeniería Financiera", "TRL", "Trazabilidad Digital", "Ley 30309"],
+        liveUrl: "https://500-mejores.premiosverdes.org/es/proyecto-500-mejores?proyecto=hub-de-innovacion-sostenible-eduardo-noriega",
+        featured: false,
+        status: "development",
+        accentColor: "#22c55e",
+    },
+    {
         id: "boya-inteligente",
         name: "Boya Inteligente para Piscigranjas",
         description:
@@ -256,6 +269,14 @@ export interface Award {
 }
 
 export const awards: Award[] = [
+    {
+        id: "award-premiosverdes-2026",
+        title: "500 Mejores Proyectos — Hub de Innovación Sostenible · CIB Pucallpa",
+        organization: "Premios Verdes 2026",
+        year: "2026",
+        type: "representative",
+        accentColor: "#22c55e",
+    },
     {
         id: "award-biomulch-2026",
         title: "Finalista — II Hackathon de Química Verde 2026",
