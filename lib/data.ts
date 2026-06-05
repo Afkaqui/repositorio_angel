@@ -204,14 +204,14 @@ export const experience: Experience[] = [
     },
     {
         id: "exp-education",
-        role: "Ingeniería de Sistemas — Décimo Superior",
+        role: "Ingeniería de Sistemas — 2.° Puesto · Orden de Mérito",
         company: "Universidad Nacional Hermilio Valdizán (UNHEVAL)",
         period: "2019 – 2024",
         location: "Huánuco, Perú",
         description:
-            "Egresado con distinción académica como parte del Décimo Superior. Formación complementada con intercambio en Colombia y especialización en Lima.",
+            "Egresado con Constancia de Orden de Mérito N° 0026.10 — 2.° Puesto de 59 alumnos, promedio acumulado 15.19 (año académico 2025). Formación complementada con intercambio en Colombia y especialización en Lima.",
         bullets: [
-            "Décimo Superior — distinción académica en la carrera de Ingeniería de Sistemas",
+            "2.° Puesto de 59 alumnos · Promedio acumulado 15.19 · Constancia de Orden de Mérito N° 0026.10 (UNHEVAL, 2025)",
             "Intercambio académico en la Universidad de Manizales, Colombia",
             "Especialización en Business Intelligence y Gestión de Proyectos — UNMSM, Lima",
             "Investigación de tesis en ML aplicado al bienestar psicopedagógico (Mishisimi)",

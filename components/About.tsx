@@ -60,7 +60,7 @@ export default function About() {
                     <span className="gradient-text">con propósito</span>
                 </h2>
                 <p className="section-subtitle">
-                    Ingeniero de Sistemas (Décimo Superior, UNHEVAL) · Fundador de startups Deep Tech ·
+                    Ingeniero de Sistemas (2.° Puesto · Orden de Mérito, UNHEVAL) · Fundador de startups Deep Tech ·
                     Apasionado por resolver problemas estructurales con datos e inteligencia artificial.
                 </p>
 
@@ -95,7 +95,7 @@ export default function About() {
                     <div style={{ marginBottom: "2.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
                         <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
                             Soy <strong style={{ color: "var(--text-primary)" }}>Angel Francisco Kaqui Aquino</strong> —
-                            Egresado de Ingeniería de Sistemas en la UNHEVAL (Décimo Superior), con estudios en la
+                            Egresado de Ingeniería de Sistemas en la UNHEVAL — <strong style={{ color: "var(--accent-light)" }}>2.° Puesto de 59 alumnos · Promedio 15.19</strong> (Constancia de Orden de Mérito N° 0026.10), con estudios en la
                             Universidad de Manizales (Colombia) y especialización en Business Intelligence y Gestión de
                             Proyectos en la UNMSM (Lima).
                         </p>

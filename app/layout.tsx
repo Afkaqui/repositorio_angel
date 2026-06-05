@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "afkaqui | Angel Kaqui – Tech Lead & Fundador",
   description:
-    "Portafolio de Angel Francisco Kaqui Aquino – Ingeniero de Sistemas (Décimo Superior, UNHEVAL), Tech Lead y Fundador de startups Deep Tech. EYWA, Lucy, BioMulch Andino.",
+    "Portafolio de Angel Francisco Kaqui Aquino – Ingeniero de Sistemas (2.° Puesto · Orden de Mérito, UNHEVAL), Tech Lead y Fundador de startups Deep Tech. EYWA, Lucy, BioMulch Andino.",
   keywords: [
     "Tech Lead", "Fundador", "Ingeniero de Sistemas", "Deep Tech", "Next.js",
     "Python", "Machine Learning", "Power BI", "DataOps", "HealthTech", "afkaqui"
