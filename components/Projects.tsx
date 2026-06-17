@@ -1,11 +1,16 @@
+"use client";
 import React from "react";
 import { projects } from "@/lib/data";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 const StatusBadge = ({ status }: { status: string }) => {
+    const { lang } = useLanguage();
+    const t = translations.projects.status;
     const map: Record<string, { label: string; color: string }> = {
-        production: { label: "En producción", color: "#22c55e" },
-        development: { label: "En desarrollo", color: "#f59e0b" },
-        research: { label: "Investigación", color: "#6366f1" },
+        production: { label: t.production[lang], color: "#22c55e" },
+        development: { label: t.development[lang], color: "#f59e0b" },
+        research: { label: t.research[lang], color: "#6366f1" },
     };
     const s = map[status] ?? map.production;
     return (
@@ -29,20 +34,29 @@ const StatusBadge = ({ status }: { status: string }) => {
     );
 };
 
+type ProjectId = keyof typeof translations.projectData;
+
+function getProjectText(id: string, field: "name" | "description" | "longDescription", lang: "es" | "en", fallback: string): string {
+    const data = translations.projectData[id as ProjectId];
+    if (!data) return fallback;
+    return data[field][lang];
+}
+
 export default function Projects() {
+    const { lang } = useLanguage();
+    const t = translations.projects;
     const featured = projects.filter((p) => p.featured);
     const rest = projects.filter((p) => !p.featured);
 
     return (
         <section id="projects" style={{ background: "var(--bg-primary)" }}>
             <div className="section">
-                <p className="section-label reveal">02. Proyectos</p>
+                <p className="section-label reveal">{t.label[lang]}</p>
                 <h2 className="section-title reveal" style={{ "--reveal-delay": "0.05s" } as React.CSSProperties}>
-                    Lo que he <span className="gradient-text">construido</span>
+                    {t.title[lang]}<span className="gradient-text">{t.title_2[lang]}</span>
                 </h2>
                 <p className="section-subtitle reveal" style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}>
-                    Proyectos reales que resuelven problemas reales — con tecnología moderna y código que
-                    escala.
+                    {t.subtitle[lang]}
                 </p>
 
                 {/* Featured Projects */}
@@ -105,7 +119,7 @@ export default function Projects() {
                                                     color: "var(--text-primary)",
                                                 }}
                                             >
-                                                {project.name}
+                                                {getProjectText(project.id, "name", lang, project.name)}
                                             </h3>
                                             <StatusBadge status={project.status} />
                                         </div>
@@ -113,7 +127,7 @@ export default function Projects() {
                                             className="mono"
                                             style={{ fontSize: "0.72rem", color: project.accentColor, letterSpacing: "0.08em" }}
                                         >
-                                            Proyecto destacado
+                                            {t.featured[lang]}
                                         </span>
                                     </div>
 
@@ -163,7 +177,7 @@ export default function Projects() {
                                         lineHeight: 1.75,
                                     }}
                                 >
-                                    {project.longDescription}
+                                    {getProjectText(project.id, "longDescription", lang, project.longDescription)}
                                 </p>
 
                                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
@@ -190,7 +204,7 @@ export default function Projects() {
                                 marginBottom: "1.25rem",
                             }}
                         >
-                            — otros proyectos
+                            {t.others[lang]}
                         </h3>
                         <div
                             style={{
@@ -228,7 +242,7 @@ export default function Projects() {
                                                 fontSize: "1.1rem",
                                             }}
                                         >
-                                            {project.name}
+                                            {getProjectText(project.id, "name", lang, project.name)}
                                         </h4>
                                         <StatusBadge status={project.status} />
                                     </div>
@@ -240,7 +254,7 @@ export default function Projects() {
                                             marginBottom: "1rem",
                                         }}
                                     >
-                                        {project.description}
+                                        {getProjectText(project.id, "description", lang, project.description)}
                                     </p>
                                     <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
                                         {project.tech.slice(0, 4).map((t) => (

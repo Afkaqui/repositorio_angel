@@ -1,6 +1,8 @@
 "use client";
 import { skills } from "@/lib/data";
 import React, { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 function StatCounter({ target, suffix = "" }: { target: number; suffix: string }) {
     const [count, setCount] = useState(0);
@@ -51,18 +53,18 @@ function StatCounter({ target, suffix = "" }: { target: number; suffix: string }
 }
 
 export default function About() {
+    const { lang } = useLanguage();
+    const t = translations.about;
+
     return (
         <section id="about" style={{ background: "var(--bg-secondary)" }}>
             <div className="section">
-                <p className="section-label">01. Sobre mí</p>
+                <p className="section-label">{t.label[lang]}</p>
                 <h2 className="section-title">
-                    Arquitecto de soluciones{" "}
-                    <span className="gradient-text">con propósito</span>
+                    {t.title_1[lang]}{" "}
+                    <span className="gradient-text">{t.title_2[lang]}</span>
                 </h2>
-                <p className="section-subtitle">
-                    Ingeniero de Sistemas (2.° Puesto · Orden de Mérito, UNHEVAL) · Fundador de startups Deep Tech ·
-                    Apasionado por resolver problemas estructurales con datos e inteligencia artificial.
-                </p>
+                <p className="section-subtitle">{t.subtitle[lang]}</p>
 
                 {/* Stats row */}
                 <div
@@ -77,9 +79,9 @@ export default function About() {
                     }}
                 >
                     {[
-                        { label: "Proyectos", target: 10, suffix: "+" },
-                        { label: "Premios", target: 15, suffix: "+" },
-                        { label: "Años exp.", target: 3, suffix: "+" },
+                        { label: t.stat_projects[lang], target: 10, suffix: "+" },
+                        { label: t.stat_awards[lang], target: 15, suffix: "+" },
+                        { label: t.stat_years[lang], target: 3, suffix: "+" },
                     ].map((s) => (
                         <div key={s.label} style={{ textAlign: "center" }}>
                             <StatCounter target={s.target} suffix={s.suffix} />
@@ -93,24 +95,9 @@ export default function About() {
                 {/* Text */}
                 <div className="reveal" style={{ "--reveal-delay": "0.15s", maxWidth: "780px" } as React.CSSProperties}>
                     <div style={{ marginBottom: "2.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
-                            Soy <strong style={{ color: "var(--text-primary)" }}>Angel Francisco Kaqui Aquino</strong> —
-                            Egresado de Ingeniería de Sistemas en la UNHEVAL — <strong style={{ color: "var(--accent-light)" }}>2.° Puesto de 59 alumnos · Promedio 15.19</strong> (Constancia de Orden de Mérito N° 0026.10), con estudios en la
-                            Universidad de Manizales (Colombia) y especialización en Business Intelligence y Gestión de
-                            Proyectos en la UNMSM (Lima).
-                        </p>
-                        <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
-                            Como Tech Lead y Fundador, lidero startups de base tecnológica (Deep Tech) que buscan
-                            resolver problemas estructurales mediante el uso inteligente de datos:{" "}
-                            <strong style={{ color: "var(--accent-light)" }}>EYWA</strong> (DataOps &amp; Sostenibilidad),{" "}
-                            <strong style={{ color: "var(--accent-2)" }}>Lucy</strong> (HealthTech &amp; IA) y{" "}
-                            <strong style={{ color: "#22c55e" }}>BioMulch Andino</strong> (Biotecnología &amp; Economía Circular).
-                        </p>
-                        <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
-                            Graduado del <strong style={{ color: "var(--text-primary)" }}>Aspire Leaders Program</strong> (fundado
-                            por profesores de Harvard) y seleccionado en Jóvenes, Ciudadanía y Democracia (JCD).
-                            Mi base operativa se extiende entre Huánuco, Lima y Pasco.
-                        </p>
+                        <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>{t.bio_1[lang]}</p>
+                        <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>{t.bio_2[lang]}</p>
+                        <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>{t.bio_3[lang]}</p>
                     </div>
 
                     {/* Skill Groups */}

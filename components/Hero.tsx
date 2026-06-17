@@ -1,15 +1,14 @@
 "use client";
 import { useEffect, useRef } from "react";
-
-const titles = [
-    "Ingeniero de Sistemas",
-    "Tech Lead & Fundador",
-    "Full Stack Developer",
-    "Builder de Productos",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
+import ViewCounter from "@/components/ViewCounter";
 
 export default function Hero() {
     const titleRef = useRef<HTMLSpanElement>(null);
+    const { lang } = useLanguage();
+    const t = translations.hero;
+    const titles = lang === "es" ? t.titles_es : t.titles_en;
 
     useEffect(() => {
         let titleIndex = 0;
@@ -17,8 +16,12 @@ export default function Hero() {
         let deleting = false;
         let timeout: ReturnType<typeof setTimeout>;
 
+        const currentTitles = lang === "es"
+            ? translations.hero.titles_es
+            : translations.hero.titles_en;
+
         const type = () => {
-            const current = titles[titleIndex];
+            const current = currentTitles[titleIndex];
             if (!titleRef.current) return;
 
             if (!deleting) {
@@ -42,7 +45,7 @@ export default function Hero() {
 
         timeout = setTimeout(type, 600);
         return () => clearTimeout(timeout);
-    }, []);
+    }, [lang]);
 
     return (
         <section
@@ -68,7 +71,7 @@ export default function Hero() {
                     width: "520px",
                     height: "520px",
                     background:
-                        "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)",
+                        "radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%)",
                     animation: "floatGlow 8s ease-in-out infinite",
                     pointerEvents: "none",
                 }}
@@ -82,7 +85,7 @@ export default function Hero() {
                     width: "380px",
                     height: "380px",
                     background:
-                        "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)",
+                        "radial-gradient(circle, rgba(14,165,233,0.09) 0%, transparent 70%)",
                     animation: "floatGlow 6s ease-in-out infinite reverse",
                     pointerEvents: "none",
                 }}
@@ -117,8 +120,13 @@ export default function Hero() {
                         className="mono"
                         style={{ fontSize: "0.78rem", color: "var(--accent-light)" }}
                     >
-                        Disponible para proyectos
+                        {t.available[lang]}
                     </span>
+                </div>
+
+                {/* View counter */}
+                <div style={{ marginBottom: "1rem" }}>
+                    <ViewCounter />
                 </div>
 
                 {/* Name */}
@@ -186,8 +194,7 @@ export default function Hero() {
                         opacity: 0,
                     }}
                 >
-                    Fundador de startups Deep Tech y arquitecto de soluciones con propósito. Del dato al
-                    producto — con enfoque en impacto real, escalabilidad y rigor técnico.
+                    {t.description[lang]}
                 </p>
 
                 {/* CTA Buttons */}
@@ -203,10 +210,10 @@ export default function Hero() {
                     }}
                 >
                     <a href="#projects" className="btn-primary" id="hero-cta-projects">
-                        Ver Proyectos →
+                        {t.cta_projects[lang]}
                     </a>
                     <a href="#contact" className="btn-outline" id="hero-cta-contact">
-                        Contactar
+                        {t.cta_contact[lang]}
                     </a>
                 </div>
 

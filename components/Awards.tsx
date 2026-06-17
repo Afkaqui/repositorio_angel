@@ -1,13 +1,17 @@
+"use client";
 import React from "react";
 import { awards } from "@/lib/data";
-
-const typeConfig = {
-    winner: { label: "🏆 Ganador", color: "#f59e0b" },
-    finalist: { label: "🥈 Finalista", color: "#8b5cf6" },
-    representative: { label: "🌟 Representante", color: "#6366f1" },
-};
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Awards() {
+    const { lang } = useLanguage();
+    const t = translations.awards;
+    const typeConfig = {
+        winner:         { label: t.type.winner[lang],         color: "#f59e0b" },
+        finalist:       { label: t.type.finalist[lang],       color: "#8b5cf6" },
+        representative: { label: t.type.representative[lang], color: "#6366f1" },
+    };
     // Group by year, descending
     const byYear = awards.reduce<Record<string, typeof awards>>((acc, award) => {
         if (!acc[award.year]) acc[award.year] = [];
@@ -20,12 +24,12 @@ export default function Awards() {
     return (
         <section id="awards" style={{ background: "var(--bg-secondary)" }}>
             <div className="section">
-                <p className="section-label reveal">04. Reconocimientos</p>
+                <p className="section-label reveal">{t.label[lang]}</p>
                 <h2 className="section-title reveal" style={{ "--reveal-delay": "0.05s" } as React.CSSProperties}>
-                    Logros &amp; <span className="gradient-text">Premios</span>
+                    {t.title[lang]}<span className="gradient-text">{t.title_2[lang]}</span>
                 </h2>
                 <p className="section-subtitle reveal" style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}>
-                    Competencias, hackathons y fondos ganados a lo largo del camino.
+                    {t.subtitle[lang]}
                 </p>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>

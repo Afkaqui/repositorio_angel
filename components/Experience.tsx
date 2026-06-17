@@ -1,5 +1,8 @@
+"use client";
 import React from "react";
 import { experience } from "@/lib/data";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
 
 const typeColors: Record<string, string> = {
     work: "#6366f1",
@@ -7,22 +10,38 @@ const typeColors: Record<string, string> = {
     education: "#f59e0b",
 };
 
-const typeLabels: Record<string, string> = {
-    work: "Trabajo",
-    freelance: "Freelance",
-    education: "Educación",
-};
+type ExpId = keyof typeof translations.experienceData;
+
+function getExpText(id: string, field: "role" | "period" | "description", lang: "es" | "en", fallback: string): string {
+    const data = translations.experienceData[id as ExpId];
+    if (!data) return fallback;
+    return data[field][lang];
+}
+
+function getExpBullets(id: string, lang: "es" | "en", fallback: string[]): string[] {
+    const data = translations.experienceData[id as ExpId];
+    if (!data) return fallback;
+    return [...data.bullets[lang]];
+}
 
 export default function Experience() {
+    const { lang } = useLanguage();
+    const t = translations.experience;
+    const typeLabels: Record<string, string> = {
+        work:      t.type.work[lang],
+        freelance: t.type.freelance[lang],
+        education: t.type.education[lang],
+    };
+
     return (
         <section id="experience" style={{ background: "var(--bg-secondary)" }}>
             <div className="section">
-                <p className="section-label reveal">03. Experiencia</p>
+                <p className="section-label reveal">{t.label[lang]}</p>
                 <h2 className="section-title reveal" style={{ "--reveal-delay": "0.05s" } as React.CSSProperties}>
-                    Mi <span className="gradient-text">trayectoria</span>
+                    {t.title[lang]}<span className="gradient-text">{t.title_2[lang]}</span>
                 </h2>
                 <p className="section-subtitle reveal" style={{ "--reveal-delay": "0.1s" } as React.CSSProperties}>
-                    Del aula a la producción — construyendo experiencia en cada proyecto.
+                    {t.subtitle[lang]}
                 </p>
 
                 {/* Timeline */}
@@ -97,7 +116,7 @@ export default function Experience() {
                                                         marginBottom: "0.2rem",
                                                     }}
                                                 >
-                                                    {exp.role}
+                                                    {getExpText(exp.id, "role", lang, exp.role)}
                                                 </h3>
                                                 <span
                                                     style={{
@@ -118,7 +137,7 @@ export default function Experience() {
                                                         color: "var(--text-muted)",
                                                     }}
                                                 >
-                                                    {exp.period}
+                                                    {getExpText(exp.id, "period", lang, exp.period)}
                                                 </span>
                                                 <span
                                                     style={{
@@ -144,7 +163,7 @@ export default function Experience() {
                                                 lineHeight: 1.7,
                                             }}
                                         >
-                                            {exp.description}
+                                            {getExpText(exp.id, "description", lang, exp.description)}
                                         </p>
 
                                         <ul
@@ -157,7 +176,7 @@ export default function Experience() {
                                                 marginBottom: "1.25rem",
                                             }}
                                         >
-                                            {exp.bullets.map((b, i) => (
+                                            {getExpBullets(exp.id, lang, exp.bullets).map((b, i) => (
                                                 <li
                                                     key={i}
                                                     style={{

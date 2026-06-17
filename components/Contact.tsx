@@ -1,3 +1,7 @@
+"use client";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/lib/translations";
+
 const socialLinks = [
     {
         id: "github",
@@ -43,6 +47,9 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+    const { lang } = useLanguage();
+    const t = translations.contact;
+
     return (
         <section
             id="contact"
@@ -70,9 +77,9 @@ export default function Contact() {
             />
 
             <div className="section" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-                <p className="section-label">05. Contacto</p>
+                <p className="section-label">{t.label[lang]}</p>
                 <h2 className="section-title" style={{ marginBottom: "1rem" }}>
-                    ¿Trabajamos <span className="gradient-text">juntos?</span>
+                    {t.title[lang]}<span className="gradient-text">{t.title_2[lang]}</span>
                 </h2>
                 <p
                     style={{
@@ -83,8 +90,7 @@ export default function Contact() {
                         lineHeight: 1.8,
                     }}
                 >
-                    Estoy disponible para proyectos freelance, colaboraciones o conversaciones sobre
-                    tecnología. ¡No dudes en escribirme!
+                    {t.subtitle[lang]}
                 </p>
 
                 <div
@@ -102,12 +108,30 @@ export default function Contact() {
                         style={{
                             fontSize: "0.8rem",
                             color: "var(--text-muted)",
-                            marginBottom: "1.5rem",
+                            marginBottom: "0.75rem",
                             letterSpacing: "0.08em",
                         }}
                     >
-            // encuéntrame en
+                        {t.comment[lang]}
                     </p>
+
+                    <a
+                        href="mailto:afkaqui@gmail.com"
+                        style={{
+                            display: "block",
+                            fontFamily: "var(--font-sans)",
+                            fontWeight: 700,
+                            fontSize: "clamp(1rem, 3vw, 1.4rem)",
+                            color: "var(--text-primary)",
+                            textDecoration: "none",
+                            marginBottom: "1.75rem",
+                            transition: "color 0.2s",
+                        }}
+                        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}
+                        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-primary)")}
+                    >
+                        afkaqui@gmail.com
+                    </a>
 
                     <div
                         style={{
@@ -156,7 +180,7 @@ export default function Contact() {
                         style={{ width: "100%", justifyContent: "center" }}
                         id="contact-email-btn"
                     >
-                        Enviar mensaje →
+                        {t.send[lang]}
                     </a>
                 </div>
             </div>
