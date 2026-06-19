@@ -2,10 +2,12 @@
 import { useState } from "react";
 
 const pasos = [
-    { de: "sandro", texto: "Oye Angel, ¿te sabes la broma?" },
-    { de: "angel", texto: "No..." },
-    { de: "sandro", texto: "Perfecto." },
-    { de: "sandro", texto: "Ahora los dos." },
+    { de: "angel", texto: "@Sandro, te sabes la broma?" },
+    { de: "sandro", texto: "No..." },
+    { de: "angel", texto: "Feliz primer aniversario 🎉" },
+    { de: "sandro", texto: "¿De qué...?" },
+    { de: "angel", texto: "De tu expulsión." },
+    { de: "angel", texto: "Por afk 😂" },
 ];
 
 export default function Broma() {
@@ -30,6 +32,20 @@ export default function Broma() {
                 fontFamily: "system-ui, sans-serif",
             }}
         >
+            <h1
+                style={{
+                    color: "#e2e8f0",
+                    fontSize: "clamp(1.1rem, 4vw, 1.5rem)",
+                    fontWeight: 700,
+                    textAlign: "center",
+                    marginBottom: "0.5rem",
+                    letterSpacing: "-0.01em",
+                }}
+            >
+                Feliz primer aniversario{" "}
+                <span style={{ color: "#2563eb" }}>🎉</span>
+            </h1>
+
             <p
                 style={{
                     color: "#475569",
