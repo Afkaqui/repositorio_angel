@@ -1,142 +1,211 @@
 "use client";
 import { useState } from "react";
 
-const pasos = [
-    { de: "angel", texto: "@Sandro, te sabes la broma?" },
-    { de: "sandro", texto: "No..." },
-    { de: "angel", texto: "Feliz primer aniversario 🎉" },
-    { de: "sandro", texto: "¿De qué...?" },
-    { de: "angel", texto: "De tu expulsión." },
-    { de: "angel", texto: "Por afk 😂" },
+const miembros = [
+    "Julca El Robado",
+    "Leonardo Romero 2",
+    "Ángel Francisco",
+    "Eduardo Rosas UNHEVAL",
+    "Kevin Claudio Montes",
+    "Luis Manuela El Robado",
+    "Pardavé",
+    "Sandro",
+];
+
+const SANDRO = miembros.indexOf("Sandro");
+
+const colores = [
+    "#6366f1", "#f59e0b", "#10b981", "#ef4444",
+    "#3b82f6", "#ec4899", "#14b8a6", "#f97316",
 ];
 
 export default function Broma() {
-    const [visibles, setVisibles] = useState(1);
+    const [seleccionado, setSeleccionado] = useState<number | null>(null);
+    const [girando, setGirando] = useState(false);
+    const [resultado, setResultado] = useState(false);
 
-    const siguiente = () => {
-        if (visibles < pasos.length) setVisibles((v) => v + 1);
+    const girar = () => {
+        if (girando) return;
+        setGirando(true);
+        setResultado(false);
+        setSeleccionado(null);
+
+        let iteraciones = 0;
+        const total = 36;
+
+        const siguiente = (delay: number) => {
+            setTimeout(() => {
+                iteraciones++;
+                if (iteraciones < total) {
+                    setSeleccionado(Math.floor(Math.random() * miembros.length));
+                    const newDelay = delay + (iteraciones > 24 ? 60 : 6);
+                    siguiente(newDelay);
+                } else {
+                    setSeleccionado(SANDRO);
+                    setGirando(false);
+                    setResultado(true);
+                }
+            }, delay);
+        };
+
+        siguiente(40);
     };
-
-    const terminado = visibles >= pasos.length;
 
     return (
         <main
             style={{
                 minHeight: "100vh",
-                background: "#0f172a",
+                background: "radial-gradient(ellipse at top, #1e1b4b 0%, #0f0f0f 60%)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "2rem",
+                padding: "2rem 1rem",
                 fontFamily: "system-ui, sans-serif",
             }}
         >
-            <h1
-                style={{
-                    color: "#e2e8f0",
-                    fontSize: "clamp(1.1rem, 4vw, 1.5rem)",
-                    fontWeight: 700,
-                    textAlign: "center",
-                    marginBottom: "0.5rem",
-                    letterSpacing: "-0.01em",
-                }}
-            >
-                Feliz primer aniversario{" "}
-                <span style={{ color: "#2563eb" }}>🎉</span>
-            </h1>
+            {/* Header */}
+            <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
+                <p style={{ color: "#6366f1", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.5rem" }}>
+                    SORTEO OFICIAL
+                </p>
+                <h1
+                    style={{
+                        fontSize: "clamp(1.6rem, 5vw, 2.4rem)",
+                        fontWeight: 900,
+                        color: "#fff",
+                        margin: 0,
+                        lineHeight: 1.1,
+                    }}
+                >
+                    ¿Quién se va
+                    <br />
+                    <span style={{ background: "linear-gradient(90deg, #6366f1, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                        del grupo?
+                    </span>
+                </h1>
+            </div>
 
-            <p
-                style={{
-                    color: "#475569",
-                    fontSize: "0.75rem",
-                    letterSpacing: "0.1em",
-                    marginBottom: "2rem",
-                    textTransform: "uppercase",
-                }}
-            >
-                Hoy — {new Date().toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" })}
-            </p>
-
+            {/* Grid de participantes */}
             <div
                 style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.75rem",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    gap: "0.6rem",
                     width: "100%",
-                    maxWidth: "380px",
+                    maxWidth: "420px",
+                    marginBottom: "2rem",
                 }}
             >
-                {pasos.slice(0, visibles).map((paso, i) => (
-                    <div
-                        key={i}
-                        style={{
-                            display: "flex",
-                            justifyContent: paso.de === "angel" ? "flex-end" : "flex-start",
-                            animation: "fadeUp 0.3s ease",
-                        }}
-                    >
+                {miembros.map((nombre, i) => {
+                    const activo = seleccionado === i;
+                    const color = colores[i];
+                    return (
                         <div
+                            key={i}
                             style={{
-                                maxWidth: "75%",
-                                padding: "0.65rem 1rem",
-                                borderRadius: paso.de === "angel"
-                                    ? "18px 18px 4px 18px"
-                                    : "18px 18px 18px 4px",
-                                background: paso.de === "angel" ? "#2563eb" : "#1e293b",
-                                color: paso.de === "angel" ? "#fff" : "#e2e8f0",
-                                fontSize: "0.95rem",
-                                lineHeight: 1.5,
-                                boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.65rem",
+                                padding: "0.75rem 1rem",
+                                borderRadius: "12px",
+                                background: activo ? `${color}22` : "rgba(255,255,255,0.04)",
+                                border: `2px solid ${activo ? color : "rgba(255,255,255,0.07)"}`,
+                                transition: "all 0.07s ease",
+                                boxShadow: activo ? `0 0 20px ${color}55` : "none",
+                                transform: activo ? "scale(1.04)" : "scale(1)",
                             }}
                         >
-                            {paso.de === "sandro" && (
-                                <span style={{ fontSize: "0.65rem", color: "#38bdf8", display: "block", marginBottom: "0.2rem", fontWeight: 600 }}>
-                                    Sandro
-                                </span>
-                            )}
-                            {paso.texto}
+                            <div
+                                style={{
+                                    width: "34px",
+                                    height: "34px",
+                                    borderRadius: "50%",
+                                    background: activo ? color : "rgba(255,255,255,0.1)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    fontSize: "0.85rem",
+                                    fontWeight: 700,
+                                    color: activo ? "#fff" : "rgba(255,255,255,0.5)",
+                                    flexShrink: 0,
+                                    transition: "all 0.07s ease",
+                                }}
+                            >
+                                {nombre[0]}
+                            </div>
+                            <span
+                                style={{
+                                    fontSize: "0.78rem",
+                                    fontWeight: activo ? 700 : 400,
+                                    color: activo ? "#fff" : "rgba(255,255,255,0.45)",
+                                    lineHeight: 1.3,
+                                    transition: "all 0.07s ease",
+                                }}
+                            >
+                                {nombre}
+                            </span>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
-            <div style={{ marginTop: "2rem", textAlign: "center" }}>
-                {!terminado ? (
-                    <button
-                        onClick={siguiente}
+            {/* Botón */}
+            <button
+                onClick={girar}
+                disabled={girando}
+                style={{
+                    background: girando
+                        ? "rgba(255,255,255,0.06)"
+                        : "linear-gradient(135deg, #6366f1, #ec4899)",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "999px",
+                    padding: "0.9rem 3rem",
+                    fontSize: "1rem",
+                    fontWeight: 800,
+                    cursor: girando ? "not-allowed" : "pointer",
+                    letterSpacing: "0.05em",
+                    transition: "all 0.2s",
+                    boxShadow: girando ? "none" : "0 0 30px rgba(99,102,241,0.5)",
+                }}
+            >
+                {girando ? "🎰 Girando..." : "🎰 GIRAR"}
+            </button>
+
+            {/* Resultado */}
+            {resultado && (
+                <div
+                    style={{
+                        marginTop: "2rem",
+                        textAlign: "center",
+                        animation: "pop 0.5s cubic-bezier(0.34,1.56,0.64,1)",
+                    }}
+                >
+                    <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8rem", marginBottom: "0.4rem" }}>
+                        El sistema ha hablado
+                    </p>
+                    <p
                         style={{
-                            background: "none",
-                            border: "1px solid #334155",
-                            color: "#94a3b8",
-                            padding: "0.5rem 1.5rem",
-                            borderRadius: "999px",
-                            cursor: "pointer",
-                            fontSize: "0.85rem",
-                            transition: "all 0.2s",
-                        }}
-                        onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLElement).style.borderColor = "#2563eb";
-                            (e.currentTarget as HTMLElement).style.color = "#2563eb";
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.borderColor = "#334155";
-                            (e.currentTarget as HTMLElement).style.color = "#94a3b8";
+                            fontSize: "clamp(1.4rem, 5vw, 2rem)",
+                            fontWeight: 900,
+                            color: "#f97316",
+                            margin: "0 0 0.3rem",
+                            textShadow: "0 0 30px #f9731688",
                         }}
                     >
-                        ...
-                    </button>
-                ) : (
-                    <p style={{ color: "#475569", fontSize: "0.8rem", marginTop: "1rem" }}>
-                        😶
+                        🚪 Sandro, hasta luego.
                     </p>
-                )}
-            </div>
+                    <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8rem" }}>
+                        Feliz aniversario de tu expulsión — por afk.
+                    </p>
+                </div>
+            )}
 
             <style>{`
-                @keyframes fadeUp {
-                    from { opacity: 0; transform: translateY(8px); }
-                    to   { opacity: 1; transform: translateY(0); }
+                @keyframes pop {
+                    from { opacity: 0; transform: scale(0.7); }
+                    to   { opacity: 1; transform: scale(1); }
                 }
             `}</style>
         </main>
