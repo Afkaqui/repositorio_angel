@@ -12,7 +12,7 @@ export default function OGImage() {
                 style={{
                     width: "1200px",
                     height: "630px",
-                    background: "#0f172a",
+                    background: "#ffffff",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -21,27 +21,39 @@ export default function OGImage() {
                     overflow: "hidden",
                 }}
             >
-                {/* Glow top-left */}
+                {/* Glow top-right */}
                 <div
                     style={{
                         position: "absolute",
-                        top: "-100px",
-                        left: "-100px",
-                        width: "500px",
-                        height: "500px",
-                        background: "radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 70%)",
+                        top: "-80px",
+                        right: "-80px",
+                        width: "480px",
+                        height: "480px",
+                        background: "radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)",
                         display: "flex",
                     }}
                 />
-                {/* Glow bottom-right */}
+                {/* Glow bottom-left */}
                 <div
                     style={{
                         position: "absolute",
-                        bottom: "-100px",
-                        right: "-100px",
-                        width: "400px",
-                        height: "400px",
-                        background: "radial-gradient(circle, rgba(14,165,233,0.25) 0%, transparent 70%)",
+                        bottom: "-80px",
+                        left: "-80px",
+                        width: "380px",
+                        height: "380px",
+                        background: "radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%)",
+                        display: "flex",
+                    }}
+                />
+                {/* Top accent bar */}
+                <div
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "6px",
+                        background: "linear-gradient(90deg, #2563eb, #0ea5e9)",
                         display: "flex",
                     }}
                 />
@@ -82,22 +94,21 @@ export default function OGImage() {
                     style={{
                         fontSize: "72px",
                         fontWeight: 900,
-                        color: "#f8fafc",
+                        color: "#0f172a",
                         lineHeight: 1.05,
-                        marginBottom: "20px",
+                        marginBottom: "16px",
                         display: "flex",
-                        flexDirection: "column",
                     }}
                 >
-                    <span>Angel Kaqui</span>
+                    Angel Kaqui
                 </div>
 
                 {/* Title */}
                 <div
                     style={{
-                        fontSize: "28px",
-                        color: "#94a3b8",
-                        marginBottom: "40px",
+                        fontSize: "26px",
+                        color: "#334155",
+                        marginBottom: "44px",
                         display: "flex",
                     }}
                 >
@@ -112,9 +123,9 @@ export default function OGImage() {
                             style={{
                                 padding: "8px 20px",
                                 borderRadius: "999px",
-                                background: "rgba(37,99,235,0.15)",
-                                border: "1px solid rgba(37,99,235,0.4)",
-                                color: "#93c5fd",
+                                background: "rgba(37,99,235,0.08)",
+                                border: "1px solid rgba(37,99,235,0.25)",
+                                color: "#2563eb",
                                 fontSize: "18px",
                                 fontWeight: 600,
                                 display: "flex",

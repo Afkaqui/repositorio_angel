@@ -9,7 +9,21 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [progress, setProgress] = useState(0);
     const [activeSection, setActiveSection] = useState("home");
+    const [dark, setDark] = useState(false);
     const { lang, toggle } = useLanguage();
+
+    useEffect(() => {
+        const saved = localStorage.getItem("darkMode") === "true";
+        setDark(saved);
+        document.documentElement.classList.toggle("dark", saved);
+    }, []);
+
+    const toggleDark = () => {
+        const next = !dark;
+        setDark(next);
+        document.documentElement.classList.toggle("dark", next);
+        localStorage.setItem("darkMode", String(next));
+    };
     const t = translations.nav;
 
     const navLinks = [
@@ -54,7 +68,7 @@ export default function Navbar() {
                 zIndex: 100,
                 transition: "all 0.3s ease",
                 background: scrolled
-                    ? "rgba(255, 255, 255, 0.88)"
+                    ? dark ? "rgba(15, 23, 42, 0.88)" : "rgba(255, 255, 255, 0.88)"
                     : "transparent",
                 backdropFilter: scrolled ? "blur(20px)" : "none",
                 borderBottom: scrolled ? "1px solid rgba(37,99,235,0.1)" : "1px solid transparent",
@@ -162,6 +176,36 @@ export default function Navbar() {
                             </li>
                         );
                     })}
+                    <li>
+                        <button
+                            onClick={toggleDark}
+                            title={dark ? "Modo claro" : "Modo oscuro"}
+                            style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                width: "36px",
+                                height: "36px",
+                                borderRadius: "var(--radius)",
+                                border: "1px solid var(--border)",
+                                background: "transparent",
+                                color: "var(--text-muted)",
+                                fontSize: "1rem",
+                                cursor: "pointer",
+                                transition: "border-color 0.2s, color 0.2s",
+                            }}
+                            onMouseEnter={(e) => {
+                                (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
+                                (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+                            }}
+                            onMouseLeave={(e) => {
+                                (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+                                (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
+                            }}
+                        >
+                            {dark ? "☀️" : "🌙"}
+                        </button>
+                    </li>
                     <li>
                         <button
                             onClick={toggle}

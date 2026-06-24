@@ -33,6 +33,36 @@
   --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.12);
 }
 
+/* ── Dark Mode ── */
+html.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --bg-card-hover: #263348;
+  --border: #334155;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1a2744 40%, #0f2040 70%, #0f172a 100%);
+  --gradient-card: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(38, 51, 72, 0.95));
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.2);
+}
+
+html.dark .glass {
+  background: rgba(30, 41, 59, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .tag {
+  background: rgba(37, 99, 235, 0.15) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
 /* ── Reset & Base ── */
 *,
 *::before,
