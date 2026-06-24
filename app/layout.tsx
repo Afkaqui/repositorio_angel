@@ -3,6 +3,7 @@ import { Providers } from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://afkaqui.vercel.app"),
   title: "afkaqui | Angel Kaqui – Tech Lead & Fundador",
   description:
     "Portafolio de Angel Francisco Kaqui Aquino – Ingeniero de Sistemas (2.° Puesto · Orden de Mérito, UNHEVAL), Tech Lead y Fundador de startups Deep Tech. EYWA, Lucy, BioMulch Andino.",
