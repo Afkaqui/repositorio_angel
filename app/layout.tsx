@@ -16,6 +16,23 @@ export const metadata: Metadata = {
     description:
       "Fundador de startups Deep Tech (EYWA, Lucy, BioMulch Andino) e Ingeniero de Sistemas con distinción académica. Portafolio de proyectos, experiencia y reconocimientos.",
     type: "website",
+    url: "https://afkaqui.vercel.app",
+    siteName: "afkaqui",
+    images: [
+      {
+        url: "https://afkaqui.vercel.app/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Angel Kaqui – Tech Lead & Fundador",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "afkaqui | Angel Kaqui – Tech Lead & Fundador",
+    description:
+      "Fundador de startups Deep Tech (EYWA, Lucy, BioMulch Andino) e Ingeniero de Sistemas. Portafolio de proyectos y reconocimientos.",
+    images: ["https://afkaqui.vercel.app/opengraph-image"],
   },
 };
 
