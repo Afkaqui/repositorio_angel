@@ -357,6 +357,40 @@ export default function Navbar() {
                             {link.label}
                         </a>
                     ))}
+                    <div style={{ display: "flex", gap: "0.75rem", marginTop: "1rem" }}>
+                        <button
+                            onClick={toggleDark}
+                            style={{
+                                flex: 1,
+                                padding: "0.6rem",
+                                borderRadius: "var(--radius)",
+                                border: "1px solid var(--border)",
+                                background: "transparent",
+                                color: "var(--text-secondary)",
+                                fontSize: "0.85rem",
+                                cursor: "pointer",
+                                fontFamily: "var(--font-mono)",
+                            }}
+                        >
+                            {dark ? "☀️ Claro" : "🌙 Oscuro"}
+                        </button>
+                        <button
+                            onClick={toggle}
+                            style={{
+                                flex: 1,
+                                padding: "0.6rem",
+                                borderRadius: "var(--radius)",
+                                border: "1px solid var(--border)",
+                                background: "transparent",
+                                color: "var(--text-secondary)",
+                                fontSize: "0.85rem",
+                                cursor: "pointer",
+                                fontFamily: "var(--font-mono)",
+                            }}
+                        >
+                            🌐 {lang === "es" ? "English" : "Español"}
+                        </button>
+                    </div>
                 </div>
             )}
 
