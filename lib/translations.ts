@@ -24,20 +24,20 @@ export const translations = {
         title_1:  { es: "Arquitecto de soluciones",  en: "Solution architect" },
         title_2:  { es: "con propósito",             en: "with purpose" },
         subtitle: {
-            es: "Ingeniero de Sistemas (2.° Puesto · Orden de Mérito, UNHEVAL) · Fundador de startups Deep Tech · Apasionado por resolver problemas estructurales con datos e inteligencia artificial.",
-            en: "Systems Engineer (2nd Place · Merit Award, UNHEVAL) · Deep Tech startup founder · Passionate about solving structural problems with data and artificial intelligence.",
+            es: "Ingeniero de Sistemas · CTO de EYWA Agro · Fundador de startups Deep Tech · Apasionado por resolver problemas estructurales con datos e inteligencia artificial.",
+            en: "Systems Engineer · CTO at EYWA Agro · Deep Tech startup founder · Passionate about solving structural problems with data and artificial intelligence.",
         },
         bio_1: {
-            es: "Soy Angel Francisco Kaqui Aquino — Egresado de Ingeniería de Sistemas en la UNHEVAL — 2.° Puesto de 59 alumnos · Promedio 15.19 (Constancia de Orden de Mérito N° 0026.10), con estudios en la Universidad de Manizales (Colombia) y especialización en Business Intelligence y Gestión de Proyectos en la UNMSM (Lima).",
-            en: "I'm Angel Francisco Kaqui Aquino — Systems Engineering graduate from UNHEVAL — 2nd place out of 59 students · GPA 15.19 (Merit Certificate No. 0026.10), with academic exchange at Universidad de Manizales (Colombia) and a specialization in Business Intelligence & Project Management at UNMSM (Lima).",
+            es: "Soy Angel Francisco Kaqui Aquino — Bachiller en Ingeniería de Sistemas por la UNHEVAL, Quinto Superior (2.° puesto de 59 egresados, promedio 15.19), con intercambios en la Universidad Nacional Mayor de San Marcos (Lima) y la Universidad de Manizales (Colombia).",
+            en: "I'm Angel Francisco Kaqui Aquino — Bachelor in Systems Engineering from UNHEVAL, top fifth of my class (2nd out of 59 graduates, GPA 15.19), with exchange programs at Universidad Nacional Mayor de San Marcos (Lima) and Universidad de Manizales (Colombia).",
         },
         bio_2: {
-            es: "Como Tech Lead y Fundador, lidero startups de base tecnológica (Deep Tech) que buscan resolver problemas estructurales mediante el uso inteligente de datos: EYWA (DataOps & Sostenibilidad), Lucy (HealthTech & IA) y BioMulch Andino (Biotecnología & Economía Circular).",
-            en: "As Tech Lead and Founder, I lead technology-based startups (Deep Tech) that solve structural problems through intelligent use of data: EYWA (DataOps & Sustainability), Lucy (HealthTech & AI) and BioMulch Andino (Biotechnology & Circular Economy).",
+            es: "Como Tech Lead y Fundador, lidero startups de base tecnológica (Deep Tech) que resuelven problemas estructurales con datos: EYWA (DataOps & Sostenibilidad), donde soy CTO de EYWA Agro —ganador de ProInnóvate InnovaSuyu Cusco 2026—, Lucy (HealthTech & IA) y BioMulch Andino (Biotecnología & Economía Circular).",
+            en: "As Tech Lead and Founder, I lead technology-based startups (Deep Tech) that solve structural problems with data: EYWA (DataOps & Sustainability), where I'm CTO of EYWA Agro —winner of ProInnóvate InnovaSuyu Cusco 2026—, Lucy (HealthTech & AI) and BioMulch Andino (Biotechnology & Circular Economy).",
         },
         bio_3: {
-            es: "Graduado del Aspire Leaders Program (fundado por profesores de Harvard) y seleccionado en Jóvenes, Ciudadanía y Democracia (JCD). Mi base operativa se extiende entre Huánuco, Lima y Pasco.",
-            en: "Graduate of the Aspire Leaders Program (founded by Harvard professors) and selected for the Youth, Citizenship and Democracy (JCD) program. My operational base spans Huánuco, Lima and Pasco.",
+            es: "Actualmente apoyo la gestión de ciencia, tecnología e innovación en el CONCYTEC. Investigo en semilleros financiados por la UNHEVAL, soy co-inventor de LazarIA (patente en proceso) y participo en el 2026 Aspire Leaders Program.",
+            en: "I currently support science, technology and innovation management at CONCYTEC. I do research in UNHEVAL-funded research groups, I'm co-inventor of LazarIA (patent pending) and I'm part of the 2026 Aspire Leaders Program.",
         },
         stat_projects: { es: "Proyectos",  en: "Projects" },
         stat_awards:   { es: "Premios",    en: "Awards" },
@@ -99,62 +99,115 @@ export const translations = {
         send:    { es: "Enviar mensaje →",   en: "Send message →" },
     },
     experienceData: {
+        "exp-concytec": {
+            role:        { es: "Practicante Profesional — Innovación y Transferencia Tecnológica", en: "Professional Intern — Innovation and Technology Transfer" },
+            period:      { es: "Abr 2026 – Presente", en: "Apr 2026 – Present" },
+            description: { es: "Subdirección de Innovación y Transferencia Tecnológica: gestión de instrumentos de ciencia, tecnología e innovación (CTI), datos y sistemas internos en el marco de la gestión pública.", en: "Innovation and Technology Transfer Sub-directorate: management of science, technology and innovation (STI) instruments, data and internal systems within public management." },
+            bullets: {
+                es: [
+                    "Apoyo en la gestión de instrumentos de CTI, Beneficios Tributarios para I+D+i (Ley N.° 30309) e iniciativas del Estado en materia de investigación",
+                    "Elaboración y seguimiento de Términos de Referencia (TDR), verificación de entregables y seguimiento a equipos de desarrollo",
+                    "Procesos de QA (pruebas funcionales y de carga) y auditoría de software institucional",
+                    "Normalización e integración de bases de datos y automatización de procesos con Python",
+                    "Reportes estadísticos e indicadores de CTI con Power BI, y apoyo en eventos nacionales como la Semana de la Innovación y Vinculatech",
+                ],
+                en: [
+                    "Support in managing STI instruments, R&D+i Tax Benefits (Law No. 30309) and government research initiatives",
+                    "Drafting and follow-up of Terms of Reference (ToR), deliverable verification and oversight of development teams",
+                    "QA processes (functional and load testing) and auditing of institutional software",
+                    "Database normalization and integration, and process automation with Python",
+                    "Statistical reports and STI indicators with Power BI, and support for national events such as Innovation Week and Vinculatech",
+                ],
+            },
+        },
         "exp-startups": {
-            role:        { es: "Tech Lead & Fundador",    en: "Tech Lead & Founder" },
+            role:        { es: "Fundador & Tech Lead · CTO de EYWA Agro", en: "Founder & Tech Lead · CTO at EYWA Agro" },
             period:      { es: "2023 – Presente",         en: "2023 – Present" },
             description: { es: "Fundador y líder técnico de startups Deep Tech orientadas a resolver problemas estructurales mediante el uso inteligente de datos, con base operativa en Huánuco, Lima y Pasco.", en: "Founder and technical lead of Deep Tech startups focused on solving structural problems through intelligent use of data, with an operational base in Huánuco, Lima and Pasco." },
             bullets: {
                 es: [
-                    "EYWA: plataforma de DataOps y monitoreo climático — pivot a modelo de suscripción con módulos de diagnóstico empresarial y scoring digital en Next.js",
-                    "Lucy: solución HealthTech con IA para salud preventiva — arquitectura propia y escalable, admitida en UTEC Ventures y Kaman 2026",
+                    "EYWA Agro (CTO): IA, blockchain y trazabilidad digital para cadenas agropecuarias de Cusco — Ganador ProInnóvate InnovaSuyu Cusco 2026 (1 de 10 entre 147 postulantes)",
+                    "EYWA: plataforma de DataOps y monitoreo climático con módulos de diagnóstico empresarial y scoring digital en Next.js",
+                    "Lucy: solución HealthTech con IA para salud preventiva — ganadora de Incuval Ventures 2024, admitida en UTEC Ventures y Kaman 2026",
                     "BioMulch Andino: biotecnología y economía circular — Finalista II Hackathon de Química Verde 2026",
-                    "Administración de servidores VPS, despliegue con Docker y Kubernetes, gestión de proyectos con PMBOK y SCRUM",
+                    "Administración de servidores VPS, despliegue con Docker y gestión de proyectos con PMBOK y Scrum",
                 ],
                 en: [
-                    "EYWA: DataOps and climate monitoring platform — pivoted to a subscription model with business diagnostics and digital scoring modules in Next.js",
-                    "Lucy: HealthTech AI solution for preventive health — proprietary scalable architecture, admitted to UTEC Ventures and Kaman 2026",
+                    "EYWA Agro (CTO): AI, blockchain and digital traceability for agricultural value chains in Cusco — Winner of ProInnóvate InnovaSuyu Cusco 2026 (1 of 10 among 147 applicants)",
+                    "EYWA: DataOps and climate monitoring platform with business diagnostics and digital scoring modules in Next.js",
+                    "Lucy: HealthTech AI solution for preventive health — winner of Incuval Ventures 2024, admitted to UTEC Ventures and Kaman 2026",
                     "BioMulch Andino: biotechnology and circular economy — Finalist at II Green Chemistry Hackathon 2026",
-                    "VPS server management, deployment with Docker and Kubernetes, project management with PMBOK and SCRUM",
+                    "VPS server management, Docker deployments and project management with PMBOK and Scrum",
+                ],
+            },
+        },
+        "exp-handin": {
+            role:        { es: "Programador de Sistemas (Full Stack)", en: "Systems Developer (Full Stack)" },
+            period:      { es: "Ene 2025 – Oct 2025", en: "Jan 2025 – Oct 2025" },
+            description: { es: "Responsable integral del desarrollo full stack de la plataforma web principal de la empresa.", en: "Fully responsible for the full stack development of the company's main web platform." },
+            bullets: {
+                es: [
+                    "Definición de la arquitectura de software y del diseño de la plataforma",
+                    "Implementación de funcionalidades clave con React.js y Flutter",
+                    "Despliegue a producción y evolución continua de la plataforma",
+                ],
+                en: [
+                    "Defined the software architecture and platform design",
+                    "Implemented key features with React.js and Flutter",
+                    "Production deployment and continuous evolution of the platform",
+                ],
+            },
+        },
+        "exp-atids": {
+            role:        { es: "Consultor Junior — Programa Agrotech Perú", en: "Junior Consultant — Agrotech Peru Program" },
+            period:      { es: "Ene 2025 – Ene 2026", en: "Jan 2025 – Jan 2026" },
+            description: { es: "Diseño e implementación de soluciones tecnológicas para el desarrollo sostenible del sector agrícola peruano.", en: "Design and implementation of technology solutions for the sustainable development of Peru's agricultural sector." },
+            bullets: {
+                es: [
+                    "Gestión de proyectos de desarrollo web para el programa Agrotech Perú",
+                    "Impulso de EYWA DataOps, iniciativa de datos e IA asociada al programa (3.° puesto en Lanza tu Startup Regional)",
+                ],
+                en: [
+                    "Web development project management for the Agrotech Peru program",
+                    "Drove EYWA DataOps, a data and AI initiative linked to the program (3rd place at Lanza tu Startup Regional)",
                 ],
             },
         },
         "exp-genes": {
-            role:        { es: "Pasante Pre-Profesional",  en: "Pre-Professional Intern" },
-            period:      { es: "2024",                     en: "2024" },
-            description: { es: "Modernización de infraestructura web y estructuración de estrategias de captación de talento para iniciativas de impacto democrático.", en: "Web infrastructure modernization and talent acquisition strategy structuring for democratic impact initiatives." },
+            role:        { es: "Pasante de Tecnología y Sistemas",  en: "Technology & Systems Intern" },
+            period:      { es: "Ene 2024 – Dic 2024",               en: "Jan 2024 – Dec 2024" },
+            description: { es: "Desarrollo de soluciones tecnológicas orientadas a la sostenibilidad y el escalamiento de emprendimientos nacionales.", en: "Development of technology solutions for the sustainability and scaling of Peruvian ventures." },
             bullets: {
                 es: [
                     "Migración y modernización de la infraestructura web bajo Next.js",
-                    "Estructuración de estrategias de captación de talento para iniciativas de impacto democrático",
+                    "Gestión de datos, evaluación de proyectos de impacto y optimización de procesos",
                     "Colaboración en proyectos de tecnología cívica y participación ciudadana",
                 ],
                 en: [
                     "Migration and modernization of the web infrastructure to Next.js",
-                    "Structuring of talent acquisition strategies for democratic impact initiatives",
+                    "Data management, impact project evaluation and process optimization",
                     "Collaboration on civic technology and citizen participation projects",
                 ],
             },
         },
         "exp-education": {
-            role:        { es: "Ingeniería de Sistemas — 2.° Puesto · Orden de Mérito",  en: "Systems Engineering — 2nd Place · Merit Award" },
-            period:      { es: "2019 – 2024",  en: "2019 – 2024" },
-            description: { es: "Egresado con Constancia de Orden de Mérito N° 0026.10 — 2.° Puesto de 59 alumnos, promedio acumulado 15.19 (año académico 2025). Formación complementada con intercambio en Colombia y especialización en Lima.", en: "Graduated with Merit Certificate No. 0026.10 — 2nd place out of 59 students, cumulative GPA 15.19 (academic year 2025). Training complemented by an exchange in Colombia and a specialization in Lima." },
+            role:        { es: "Bachiller en Ingeniería de Sistemas — Quinto Superior",  en: "Bachelor in Systems Engineering — Top Fifth of Class" },
+            period:      { es: "2020 – 2025",  en: "2020 – 2025" },
+            description: { es: "Quinto Superior: 2.° puesto de 59 egresados, promedio acumulado 15.19. Formación complementada con intercambios en la UNMSM (Lima) y la Universidad de Manizales (Colombia).", en: "Top fifth of class: 2nd out of 59 graduates, cumulative GPA 15.19. Complemented by exchange programs at UNMSM (Lima) and Universidad de Manizales (Colombia)." },
             bullets: {
                 es: [
-                    "2.° Puesto de 59 alumnos · Promedio acumulado 15.19 · Constancia de Orden de Mérito N° 0026.10 (UNHEVAL, 2025)",
-                    "Intercambio académico en la Universidad de Manizales, Colombia",
-                    "Especialización en Business Intelligence y Gestión de Proyectos — UNMSM, Lima",
-                    "Investigación de tesis en ML aplicado al bienestar psicopedagógico (Mishisimi)",
-                    "Graduado del Aspire Leaders Program (fundado por profesores de Harvard)",
-                    "Seleccionado en el programa Jóvenes, Ciudadanía y Democracia (JCD)",
+                    "2.° puesto de 59 egresados · Promedio acumulado 15.19 (Constancia de Orden de Mérito, 2026)",
+                    "Intercambio estudiantil en la Universidad Nacional Mayor de San Marcos (Lima, 2025) y en la Universidad de Manizales (Colombia, 2024)",
+                    "Tesis en curso: Sistema Inteligente para Optimizar la Atención Psicopedagógica en estudiantes de la FIISMEC (Mishisimi)",
+                    "Investigador en semilleros financiados por la UNHEVAL: KotoshTech y Pulsera inteligente (2025)",
+                    "Participante del 2026 Aspire Leaders Program y seleccionado en Jóvenes, Ciudadanía y Democracia (JCD)",
                 ],
                 en: [
-                    "2nd place out of 59 students · Cumulative GPA 15.19 · Merit Certificate No. 0026.10 (UNHEVAL, 2025)",
-                    "Academic exchange at Universidad de Manizales, Colombia",
-                    "Specialization in Business Intelligence and Project Management — UNMSM, Lima",
-                    "Thesis research in ML applied to psychopedagogical wellbeing (Mishisimi)",
-                    "Graduate of the Aspire Leaders Program (founded by Harvard professors)",
-                    "Selected for the Youth, Citizenship and Democracy (JCD) program",
+                    "2nd out of 59 graduates · Cumulative GPA 15.19 (Merit Ranking Certificate, 2026)",
+                    "Student exchange at Universidad Nacional Mayor de San Marcos (Lima, 2025) and Universidad de Manizales (Colombia, 2024)",
+                    "Thesis in progress: Intelligent System to Optimize Psycho-pedagogical Support for FIISMEC students (Mishisimi)",
+                    "Researcher in UNHEVAL-funded research groups: KotoshTech and Smart bracelet (2025)",
+                    "Participant in the 2026 Aspire Leaders Program and selected for Youth, Citizenship and Democracy (JCD)",
                 ],
             },
         },
@@ -162,8 +215,8 @@ export const translations = {
     projectData: {
         eywa: {
             name:            { es: "EYWA — DataOps & Sostenibilidad",    en: "EYWA — DataOps & Sustainability" },
-            description:     { es: "Plataforma de transparencia y monitoreo climático con modelo de suscripción para validación de planes de negocio y tokens.", en: "Transparency and climate monitoring platform with a subscription model for business plan and token validation." },
-            longDescription: { es: "Como fundador, lidero EYWA: una plataforma Deep Tech enfocada en la transparencia de datos y el monitoreo climático. Ha pivotado hacia un modelo de suscripción para la validación de planes de negocio y tokens, con un roadmap técnico que incluye módulos de diagnóstico empresarial y scoring digital, todo desarrollado en Next.js sobre infraestructura VPS propia.", en: "As founder, I lead EYWA: a Deep Tech platform focused on data transparency and climate monitoring. It has pivoted to a subscription model for business plan and token validation, with a technical roadmap including corporate diagnostics and digital scoring modules, all built in Next.js on self-managed VPS infrastructure." },
+            description:     { es: "Datos, IA y trazabilidad digital para la sostenibilidad. EYWA Agro: ganador ProInnóvate InnovaSuyu Cusco 2026.", en: "Data, AI and digital traceability for sustainability. EYWA Agro: winner of ProInnóvate InnovaSuyu Cusco 2026." },
+            longDescription: { es: "EYWA es una plataforma Deep Tech enfocada en la transparencia de datos y el monitoreo climático, con módulos de diagnóstico empresarial y scoring digital desarrollados en Next.js sobre infraestructura VPS propia. Como CTO de EYWA Agro, lidero su vertical agropecuaria: IA, blockchain y trazabilidad digital para valorizar cadenas agropecuarias sostenibles de Cusco, proyecto ganador del Concurso Emprendimientos Innovadores InnovaSuyu Cusco 2026 de ProInnóvate (1 de 10 proyectos financiados entre 147 postulantes).", en: "EYWA is a Deep Tech platform focused on data transparency and climate monitoring, with business diagnostics and digital scoring modules built in Next.js on self-managed VPS infrastructure. As CTO of EYWA Agro, I lead its agricultural vertical: AI, blockchain and digital traceability to add value to sustainable agricultural chains in Cusco — winner of ProInnóvate's InnovaSuyu Cusco 2026 Innovative Ventures Competition (1 of 10 funded projects among 147 applicants)." },
         },
         lucy: {
             name:            { es: "Lucy — HealthTech & IA",             en: "Lucy — HealthTech & AI" },
@@ -172,8 +225,8 @@ export const translations = {
         },
         lazaria: {
             name:            { es: "Chaleco Inteligente (LazarIA)",      en: "Smart Vest (LazarIA)" },
-            description:     { es: "Wearable con visión artificial para personas con discapacidad visual — 1.° Puesto Nacional en Buenas Prácticas de Gestión Inclusiva 2025.", en: "Wearable with computer vision for visually impaired people — 1st Place National Award in Inclusive Management Best Practices 2025." },
-            longDescription: { es: "LazarIA es un wearable de asistencia para personas con discapacidad visual que integra visión por computador, navegación con la API de Google Maps e IoT. La app Flutter se conecta en tiempo real con el backend NestJS para ofrecer retroalimentación auditiva y háptica, mejorando la autonomía del usuario. Ganó el 1.° Puesto Nacional en Buenas Prácticas de Gestión Inclusiva (UNHEVAL / Ministerio de Transportes, 2025).", en: "LazarIA is an assistive wearable for visually impaired people that integrates computer vision, Google Maps API navigation and IoT. The Flutter app connects in real time with the NestJS backend to provide auditory and haptic feedback, improving user autonomy. It won 1st Place Nationally in Inclusive Management Best Practices (UNHEVAL / Ministry of Transport, 2025)." },
+            description:     { es: "Wearable con visión artificial para personas con discapacidad visual — 1.° Puesto Nacional en Buenas Prácticas de Gestión Inclusiva 2025 · Patente en proceso.", en: "Wearable with computer vision for visually impaired people — 1st Place National Award in Inclusive Management Best Practices 2025 · Patent pending." },
+            longDescription: { es: "LazarIA es un wearable de asistencia para personas con discapacidad visual que integra visión por computador, navegación con la API de Google Maps e IoT. La app Flutter se conecta en tiempo real con el backend NestJS para ofrecer retroalimentación auditiva y háptica, mejorando la autonomía del usuario. Ganó el 1.° Puesto Nacional en Buenas Prácticas de Gestión Inclusiva 2025 (CONADIS) y el 2.° puesto en el Concurso de Invenciones UNHEVAL 2025; su patente se encuentra en proceso ante INDECOPI, con la UNHEVAL como solicitante.", en: "LazarIA is an assistive wearable for visually impaired people that integrates computer vision, Google Maps API navigation and IoT. The Flutter app connects in real time with the NestJS backend to provide auditory and haptic feedback, improving user autonomy. It won 1st Place Nationally in Inclusive Management Best Practices 2025 (CONADIS) and 2nd place in the UNHEVAL Inventions Contest 2025; its patent is pending before INDECOPI, with UNHEVAL as applicant." },
         },
         "biomulch-andino": {
             name:            { es: "BioMulch Andino",                    en: "BioMulch Andino" },
@@ -187,13 +240,23 @@ export const translations = {
         },
         "pulsera-inteligente": {
             name:            { es: "Pulsera Inteligente para Ansiedad Pediátrica", en: "Smart Bracelet for Pediatric Anxiety" },
-            description:     { es: "Dispositivo IoT con IA para monitorear la ansiedad de pacientes pediátricos durante atención odontológica.", en: "IoT device with AI to monitor anxiety in pediatric patients during dental care." },
-            longDescription: { es: "Proyecto de investigación y desarrollo orientado a la promoción de la salud mental infantil. La pulsera combina sensores IoT, aprendizaje supervisado y una app Flutter para detectar y monitorear niveles de ansiedad en niños durante procedimientos odontológicos, permitiendo intervenciones tempranas y personalizadas.", en: "Research and development project aimed at promoting children's mental health. The bracelet combines IoT sensors, supervised learning and a Flutter app to detect and monitor anxiety levels in children during dental procedures, enabling early and personalized interventions." },
+            description:     { es: "Dispositivo IoT con IA para monitorear la ansiedad de pacientes pediátricos durante la atención odontológica — Semilleros UNHEVAL 2025.", en: "IoT device with AI to monitor anxiety in pediatric patients during dental care — UNHEVAL Research Groups 2025." },
+            longDescription: { es: "Proyecto de investigación y desarrollo orientado a la promoción de la salud mental infantil. La pulsera combina sensores IoT, aprendizaje supervisado y una app Flutter para detectar y monitorear niveles de ansiedad en niños durante procedimientos odontológicos, permitiendo intervenciones tempranas y personalizadas. Proyecto ganador del fondo Semilleros de Investigación UNHEVAL 2025.", en: "Research and development project aimed at promoting children's mental health. The bracelet combines IoT sensors, supervised learning and a Flutter app to detect and monitor anxiety levels in children during dental procedures, enabling early and personalized interventions. Winner of the UNHEVAL Research Groups 2025 grant." },
+        },
+        kotoshtech: {
+            name:            { es: "KotoshTech",                         en: "KotoshTech" },
+            description:     { es: "Plataforma IoT y Machine Learning para la gestión productiva del ganado — Semilleros Proyectos Especiales UNHEVAL 2025.", en: "IoT and Machine Learning platform for livestock management — UNHEVAL Special Research Projects 2025." },
+            longDescription: { es: "KotoshTech, desarrollada por el semillero de investigación Work Mates de la UNHEVAL, moderniza la ganadería del Centro de Producción Kotosh (Huánuco) con monitoreo continuo e inteligencia artificial: visión por computadora para el seguimiento del comportamiento de cada animal, control de peso y curvas de crecimiento, fichas individuales y procesamiento automático de video de los corrales. Proyecto ganador del fondo Semilleros – Proyectos Especiales UNHEVAL 2025.", en: "KotoshTech, developed by UNHEVAL's Work Mates research group, modernizes cattle farming at the Kotosh Production Center (Huánuco) through continuous monitoring and artificial intelligence: computer vision to track each animal's behavior, weight control and growth curves, individual records and automatic processing of corral video. Winner of the UNHEVAL Special Research Projects 2025 grant." },
+        },
+        xrai: {
+            name:            { es: "xRAI",                               en: "xRAI" },
+            description:     { es: "Anonimizador de radiografías panorámicas con visión por computadora — 1.° Puesto VII Concurso de Innovación UNHEVAL 2025.", en: "Panoramic X-ray anonymizer with computer vision — 1st Place at the VII UNHEVAL Innovation Contest 2025." },
+            longDescription: { es: "xRAI elimina los datos del paciente incrustados en los píxeles de radiografías panorámicas mediante segmentación con YOLOv8, y organiza la salida en paquetes trazables conforme a normas ISO. Incluye una aplicación gráfica, un modo por lotes para uso técnico y un revisor de segmentación. Ganó el 1.° puesto en el VII Concurso de Innovación UNHEVAL 2025.", en: "xRAI removes patient data burned into the pixels of panoramic X-rays using YOLOv8 segmentation, and organizes the output into traceable packages compliant with ISO standards. It includes a desktop app, a batch mode for technical use and a segmentation reviewer. It won 1st place at the VII UNHEVAL Innovation Contest 2025." },
         },
         mishisimi: {
             name:            { es: "Mishisimi",                          en: "Mishisimi" },
-            description:     { es: "Sistema basado en Machine Learning para el bienestar psicopedagógico — eje central de la investigación de tesis.", en: "Machine Learning system for psychopedagogical wellbeing — core of the thesis research." },
-            longDescription: { es: "Mishisimi es el proyecto de investigación de tesis, orientado al bienestar psicopedagógico mediante Machine Learning. El sistema analiza patrones de comportamiento y rendimiento académico para generar alertas e intervenciones tempranas en estudiantes, aplicando modelos supervisados y no supervisados sobre datos recolectados en entornos universitarios.", en: "Mishisimi is the thesis research project focused on psychopedagogical wellbeing through Machine Learning. The system analyzes behavioral patterns and academic performance to generate early alerts and interventions for students, applying supervised and unsupervised models on data collected in university environments." },
+            description:     { es: "Sistema inteligente con Machine Learning para optimizar la atención psicopedagógica — proyecto de tesis con título aprobado.", en: "Intelligent Machine Learning system to optimize psycho-pedagogical support — thesis project with approved title." },
+            longDescription: { es: "Mishisimi es el proyecto de tesis colectiva «Implementación de un Sistema Inteligente para Optimizar la Atención Psicopedagógica en estudiantes de la FIISMEC, UNHEVAL», con título aprobado y proyecto en evaluación por jurado. El sistema analiza patrones de comportamiento y rendimiento académico para generar alertas e intervenciones tempranas en estudiantes, aplicando modelos supervisados y no supervisados sobre datos recolectados en entornos universitarios.", en: "Mishisimi is the joint thesis project 'Implementation of an Intelligent System to Optimize Psycho-pedagogical Support for FIISMEC students, UNHEVAL', with an approved title and the proposal under committee review. The system analyzes behavioral patterns and academic performance to generate early alerts and interventions for students, applying supervised and unsupervised models on data collected in university environments." },
         },
         cottya: {
             name:            { es: "COTTYA",                             en: "COTTYA" },

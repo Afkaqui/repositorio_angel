@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://afkaqui.vercel.app"),
   title: "afkaqui | Angel Kaqui – Tech Lead & Fundador",
   description:
-    "Portafolio de Angel Francisco Kaqui Aquino – Ingeniero de Sistemas (2.° Puesto · Orden de Mérito, UNHEVAL), Tech Lead y Fundador de startups Deep Tech. EYWA, Lucy, BioMulch Andino.",
+    "Portafolio de Angel Francisco Kaqui Aquino – Ingeniero de Sistemas (Quinto Superior, UNHEVAL), CTO de EYWA Agro y Fundador de startups Deep Tech: EYWA, Lucy, LazarIA, BioMulch Andino.",
   keywords: [
-    "Tech Lead", "Fundador", "Ingeniero de Sistemas", "Deep Tech", "Next.js",
-    "Python", "Machine Learning", "Power BI", "DataOps", "HealthTech", "afkaqui"
+    "Tech Lead", "CTO", "Fundador", "Ingeniero de Sistemas", "Deep Tech", "Next.js",
+    "Python", "Machine Learning", "Power BI", "DataOps", "HealthTech", "IoT", "afkaqui"
   ],
   authors: [{ name: "Angel Francisco Kaqui Aquino", url: "https://github.com/afkaqui" }],
   openGraph: {

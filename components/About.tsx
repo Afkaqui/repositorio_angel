@@ -79,8 +79,8 @@ export default function About() {
                     }}
                 >
                     {[
-                        { label: t.stat_projects[lang], target: 10, suffix: "+" },
-                        { label: t.stat_awards[lang], target: 15, suffix: "+" },
+                        { label: t.stat_projects[lang], target: 12, suffix: "+" },
+                        { label: t.stat_awards[lang], target: 20, suffix: "+" },
                         { label: t.stat_years[lang], target: 3, suffix: "+" },
                     ].map((s) => (
                         <div key={s.label} style={{ textAlign: "center" }}>
